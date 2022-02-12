@@ -1,6 +1,7 @@
 source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/soilwetting.R")
 source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/soil_wetting_above_capacity.R")
 source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/soildrying.R")
+source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/NSE.R")
 
 TMWBmodel=function(TMWB=TMWB,fcres=.25,SFTmp=0,bmlt6=2.5,bmlt12=1,Tlag=.5,AWCval=200){
 # Now complete the model… what flows from TopSlope to MidSlope, and down to 
