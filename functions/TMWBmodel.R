@@ -78,7 +78,6 @@ for (t in 2:length(Qpred)){
   S[t]=S[t-1]+Excess[t]     
   Qpred[t]=fcres*S[t]
   S[t]=S[t]-Qpred[t]
-  print(t)
 }
 TMWB$S=S
 TMWB$Qpred=Qpred # UPDATE vector BEFORE DETACHING
