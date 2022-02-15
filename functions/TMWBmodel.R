@@ -3,7 +3,7 @@ source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/s
 source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/soildrying.R")
 source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/NSE.R")
 
-TMWBmodel=function(TMWB=TMWB,fcres=.25,SFTmp=0,bmlt6=2.5,bmlt12=1,Tlag=.5,AWCval=200){
+TMWBmodel=function(TMWB=TMWB,fcres=.25,SFTmp=0,bmlt6=2.5,bmlt12=1,Tlag=.5,AWCval=200,Slope=0){
 # Now complete the model… what flows from TopSlope to MidSlope, and down to 
 # BotSlope. How will these be connected?
 
@@ -11,7 +11,7 @@ TMWBmodel=function(TMWB=TMWB,fcres=.25,SFTmp=0,bmlt6=2.5,bmlt12=1,Tlag=.5,AWCval
   # and Melt model in the EcoHydRology package.
   attach(TMWB)
 SNO_Energy=SnowMelt(date, P, MaxTemp-3, MinTemp-3, myflowgage$declat, 
-                      slope = 0, aspect = 0, tempHt = 1, windHt = 2, groundAlbedo = 0.25,
+                      slope = Slope, aspect = 0, tempHt = 1, windHt = 2, groundAlbedo = 0.25,
                       SurfEmissiv = 0.95, windSp = 2, forest = 0, startingSnowDepth_m = 0,
                       startingSnowDensity_kg_m3=450)
 # Note that the -3 in the above 
