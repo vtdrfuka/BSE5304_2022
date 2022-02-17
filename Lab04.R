@@ -11,9 +11,9 @@ setwd("~/Lab04/")
 # 3 Functions to calculate SWE and excess when soil is drying, 
 #   wetting, and wetting above capacity
 #
-browseURL("https://github.com/vtdrfuka/BSE5304_2022/tree/main/functions")
-browseURL("https://github.com/vtdrfuka/BSE5304_2022/blob/main/functions/TMWBmodel.R")
-browseURL("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/NSE.R")
+#browseURL("https://github.com/vtdrfuka/BSE5304_2022/tree/main/functions")
+#browseURL("https://github.com/vtdrfuka/BSE5304_2022/blob/main/functions/TMWBmodel.R")
+#browseURL("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/NSE.R")
 source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/TMWBmodel.R")
 
 # Download a soils dataset for your basin based on the WebSoilSurvey method 
