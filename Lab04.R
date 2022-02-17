@@ -103,7 +103,7 @@ modeldata$MaxTemp[is.na(modeldata$MaxTemp)]=
   modeldata$MinTemp[is.na(modeldata$MaxTemp)] +1
 modeldata$MaxTemp[modeldata$MaxTemp<=modeldata$MinTemp]=
   modeldata$MinTemp[modeldata$MaxTemp<=modeldata$MinTemp]+1
-modeldata$AvgTemp=(modeldata$MaxTemp+modeldata$MaxTemp)/2.0
+modeldata$AvgTemp=(modeldata$MaxTemp+modeldata$MinTemp)/2.0
 
 summary(modeldata)
 modeldata[is.na(modeldata)]=0 # A Quick BUT sloppy removal of NAs
