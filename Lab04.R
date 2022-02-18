@@ -130,6 +130,4 @@ print(paste(AWCval,NSE(TMWBnew$Qmm,TMWBnew$Qpred)))
 
 # For a simple spatial model, use TMWB, to initialize 3 
 # slope components for Top, Mid, and Bottom of the hillside. 
-TopSlope=TMWB
-MidSlope=TMWB
-BotSlope=TMWB
+
