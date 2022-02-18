@@ -1,7 +1,7 @@
 options(repos ="http://cran.us.r-project.org")  # required to get latest libs
 # Installing the packages we will play with today
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(elevatr,soilDB,rgdal,raster,ggplot2)
+pacman::p_load(elevatr,soilDB,rgdal,raster,ggplot2,patchwork)
 # From previous weeks
 pacman::p_load(EcoHydRology,rnoaa,curl,httr)
 rm(list=objects())
