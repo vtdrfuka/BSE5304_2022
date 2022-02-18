@@ -4,10 +4,6 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(elevatr,soilDB,rgdal,raster,ggplot2,patchwork)
 # From previous weeks
 pacman::p_load(EcoHydRology,rnoaa,curl,httr)
-rm(list=objects())
-setwd("~")
-dir.create("~/Lab04")
-setwd("~/Lab04/")
 # 3 Functions to calculate SWE and excess when soil is drying, 
 #   wetting, and wetting above capacity
 #
