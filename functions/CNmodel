@@ -1,11 +1,12 @@
 
 CNmodel<-function(CNmodeldf, CNavg = 75,IaFrac = 0.05,fnc_slope=0, 
-                  fnc_aspect=0,func_DAWC=.3,func_z=1000,fnc_fcres=.3) {
+                  fnc_aspect=0,func_DAWC=.3,func_z=1000,fnc_fcres=.3,
+                  declat=declat,declon=declon) {
   
   # Energy Balance based Snow Accumulation 
   # and Melt model from the EcoHydRology package.
   attach(CNmodeldf)
-  SNO_Energy=SnowMelt(date, P, MaxTemp-3, MinTemp-3, myflowgage$declat, 
+  SNO_Energy=SnowMelt(date, P, MaxTemp-3, MinTemp-3, declat, 
                       slope = fnc_slope, aspect = fnc_aspect, tempHt = 1, 
                       windHt = 2, groundAlbedo = 0.25,SurfEmissiv = 0.95, windSp = 2, 
                       forest = 0, startingSnowDepth_m = 0,startingSnowDensity_kg_m3=450)
@@ -20,7 +21,7 @@ CNmodel<-function(CNmodeldf, CNavg = 75,IaFrac = 0.05,fnc_slope=0,
   CNmodeldf$Albedo[CNmodeldf$SNO>0]=.95
   PET=PET_fromTemp(Jday=(1+as.POSIXlt(date)$yday),
                    Tmax_C = MaxTemp,Tmin_C = MinTemp,
-                   lat_radians = myflowgage$declat*pi/180) * 1000
+                   lat_radians = declat*pi/180) * 1000
   CNmodeldf$PET=PET
   detach(CNmodeldf)
   rm(list="PET")
