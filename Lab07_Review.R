@@ -29,7 +29,7 @@ print(crs_ll)
 print(crs_utm)
 #
 # Double check against
-area=58   # area in km2
+area=   # area in km2
 # If the watershed was square, which it is not, the size would be the 
 # square root of the area. Also, the gage/pour point is not in the center
 # so we will search around the gage.
