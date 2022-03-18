@@ -11,10 +11,9 @@ options(repos ="http://cran.us.r-project.org")  # required to get latest libs
 install.packages("EcoHydRology", repos="http://R-Forge.R-project.org")
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(EcoHydRology,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,randomcoloR)
-
-#37.1903°N 80.5275°W
-declat=37.1903
-declon=-80.5275
+browseURL("https://www.bse.vt.edu/research/facilities/StREAM_Lab.html")
+declat=
+declon=
 trunc((180+declat)/6+1)
 proj4_utm = paste0("+proj=utm +zone=", trunc((180+declon)/6+1), " +datum=WGS84 +units=m +no_defs")
 print(proj4_utm)
