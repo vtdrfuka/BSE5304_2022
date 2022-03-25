@@ -1,11 +1,8 @@
 Sys.unsetenv("http_proxy"); Sys.unsetenv("https_proxy")
 install.packages("EcoHydRology", repos="http://R-Forge.R-project.org")
-install.packages("devtools")
-devtools::install_github("rspatial/terra")
-devtools::install_github("ropensci/FedData")
 options(repos ="http://cran.us.r-project.org")  # required to get latest libs
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(aqp,EcoHydRology,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,circlize,FedData)
+pacman::p_load(aqp,EcoHydRology,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,circlize)
 # Lets go back to Lick Run as it has a nice Urban to Forest mix for our P Loss Model
 myflowgage_id="0205551460"
 myflowgage=get_usgs_gage(myflowgage_id,begin_date = "2015-01-01",
@@ -239,6 +236,11 @@ plot(mysoil_utm,add=T)
 
 # Get the NLCD (USA ONLY)
 # Returns a raster
+# About time for a break!?!?
+install.packages("devtools")
+devtools::install_github("rspatial/terra")
+devtools::install_github("ropensci/FedData")
+pacman::p_load(FedData)
 
 NLCD <- get_nlcd(template=TIC, label='TIC',force.redo = TRUE)
 
@@ -247,7 +249,6 @@ plot(NLCD)
 NLCDutm=projectRaster(NLCD,TIC)
 NLCDmask=mask(NLCDutm,mybasinmask)
 plot(NLCDmask)
-
 
 
 rmysoil_utm=rasterize(mysoil_utm,TIC,field=as.numeric(mysoil_utm$mukey))
