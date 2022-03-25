@@ -1,8 +1,9 @@
 Sys.unsetenv("http_proxy"); Sys.unsetenv("https_proxy")
-install.packages("EcoHydRology", repos="http://R-Forge.R-project.org")
 options(repos ="http://cran.us.r-project.org")  # required to get latest libs
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(aqp,EcoHydRology,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,circlize)
+pacman::p_load(aqp,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,circlize)
+install.packages("EcoHydRology", repos="http://R-Forge.R-project.org")
+pacman::p_load(EcoHydRology)
 # Lets go back to Lick Run as it has a nice Urban to Forest mix for our P Loss Model
 myflowgage_id="0205551460"
 myflowgage=get_usgs_gage(myflowgage_id,begin_date = "2015-01-01",
