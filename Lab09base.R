@@ -5,7 +5,7 @@ devtools::install_github("rspatial/terra")
 devtools::install_github("ropensci/FedData")
 options(repos ="http://cran.us.r-project.org")  # required to get latest libs
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(aqp,EcoHydRology,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,randomcoloR,FedData)
+pacman::p_load(aqp,EcoHydRology,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,circlize,FedData)
 # Lets go back to Lick Run as it has a nice Urban to Forest mix for our P Loss Model
 myflowgage_id="0205551460"
 myflowgage=get_usgs_gage(myflowgage_id,begin_date = "2015-01-01",
