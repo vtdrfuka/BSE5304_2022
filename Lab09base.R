@@ -354,26 +354,24 @@ VSAsol[,sigma:=Sest*sSratio]
 VSAsol[,CN:=25400/(sigma+254)]
 VSAsol
 
-VSAParams=merge(VSAsol,MUSLE,by.x="TIClass",by.y="TIclass")
-View(VSAParams)
 TIC01=modeldata
 TIC02=modeldata
 TIC03=modeldata
 TIC04=modeldata
 TIC05=modeldata
 # For TIC01 CNavg=VSAParams$CN[1] but confirm
-TIC01 = CNmodel(CNmodeldf = TIC01, CNavg=VSAParams$CN[1], 
+TIC01 = CNmodel(CNmodeldf = TIC01, CNavg=VSAsol$CN[1], 
                 declat=declat,declon=declon)
 TIC02$P=TIC01$Excess+TIC02$P
-TIC02 = CNmodel(CNmodeldf = TIC02, CNavg=VSAParams$CN[2], 
+TIC02 = CNmodel(CNmodeldf = TIC02, CNavg=VSAsol$CN[2], 
                 declat=declat,declon=declon)
 TIC03$P=TIC02$Excess+TIC03$P
-TIC03 = CNmodel(CNmodeldf = TIC03, CNavg=VSAParams$CN[3], 
+TIC03 = CNmodel(CNmodeldf = TIC03, CNavg=VSAsol$CN[3], 
                 declat=declat,declon=declon)
 TIC04$P=TIC03$Excess+TIC04$P
-TIC04 = CNmodel(CNmodeldf = TIC04, CNavg=VSAParams$CN[4], 
+TIC04 = CNmodel(CNmodeldf = TIC04, CNavg=VSAsol$CN[4], 
                 declat=declat,declon=declon)
 TIC05$P=TIC04$Excess+TIC05$P
-TIC05 = CNmodel(CNmodeldf = TIC05, CNavg=VSAParams$CN[5], 
+TIC05 = CNmodel(CNmodeldf = TIC05, CNavg=VSAsol$CN[5], 
                 declat=declat,declon=declon)
 
