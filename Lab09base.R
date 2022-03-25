@@ -1,3 +1,4 @@
+Sys.unsetenv("http_proxy"); Sys.unsetenv("https_proxy")
 install.packages("EcoHydRology", repos="http://R-Forge.R-project.org")
 options(repos ="http://cran.us.r-project.org")  # required to get latest libs
 if (!require("pacman")) install.packages("pacman")
