@@ -238,8 +238,8 @@ plot(mysoil_utm,add=T)
 # Get the NLCD (USA ONLY)
 # Returns a raster
 # About time for a break!?!?
-install.packages("devtools")
-devtools::install_github("rspatial/terra")
+pacman::p_load(devtools,terra)
+Sys.unsetenv("http_proxy"); Sys.unsetenv("https_proxy")
 devtools::install_github("ropensci/FedData")
 pacman::p_load(FedData)
 
