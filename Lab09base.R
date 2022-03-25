@@ -1,5 +1,5 @@
 Sys.unsetenv("http_proxy"); Sys.unsetenv("https_proxy")
-options(repos ="http://cran.us.r-project.org")  # required to get latest libs
+options(repos ="http://cran.r-project.org")  # required to get latest libs
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(aqp,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,circlize,topmodel,DEoptim)
 install.packages("EcoHydRology", repos="http://R-Forge.R-project.org")
