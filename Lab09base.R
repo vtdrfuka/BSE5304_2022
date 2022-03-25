@@ -1,5 +1,8 @@
 Sys.unsetenv("http_proxy"); Sys.unsetenv("https_proxy")
 install.packages("EcoHydRology", repos="http://R-Forge.R-project.org")
+install.packages("devtools")
+devtools::install_github("rspatial/terra")
+devtools::install_github("ropensci/FedData")
 options(repos ="http://cran.us.r-project.org")  # required to get latest libs
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(aqp,EcoHydRology,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,soilDB,randomcoloR,FedData)
@@ -11,16 +14,15 @@ myflowgage=get_usgs_gage(myflowgage_id,begin_date = "2015-01-01",
 # We want Q in mm/day for the basin
 myflowgage$flowdata$Qmm = myflowgage$flowdata$flow/myflowgage$area/10^3
 
-WXData=FillMissWX(declat, declon,30,
-                       date_min="2010-01-01",
-                       date_max="2022-03-16")
-
-modeldata=merge(WXData,myflowgage$flowdata,by.x="date",by.y="mdate")
-
 #
 # But, we are going to build on last weeks lab separating out 
 declat=myflowgage$declat
 declon=myflowgage$declon
+WXData=FillMissWX(declat, declon,30,
+                       date_min="2010-01-01",
+                       date_max="2022-03-16")
+modeldata=merge(WXData,myflowgage$flowdata,by.x="date",by.y="mdate")
+
 trunc((180+declat)/6+1)
 proj4_utm = paste0("+proj=utm +zone=", trunc((180+declon)/6+1), " +datum=WGS84 +units=m +no_defs")
 print(proj4_utm)
