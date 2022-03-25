@@ -6,7 +6,7 @@ pacman::p_load(aqp,EcoHydRology,curl,httr,rnoaa,raster,shapefiles,rgdal,elevatr,
 # Lets go back to Lick Run as it has a nice Urban to Forest mix for our P Loss Model
 myflowgage_id="0205551460"
 myflowgage=get_usgs_gage(myflowgage_id,begin_date = "2015-01-01",
-                         end_date = "2019-01-01")
+                         end_date = "2022-03-24")
 
 # We want Q in mm/day for the basin
 myflowgage$flowdata$Qmm = myflowgage$flowdata$flow/myflowgage$area/10^3
