@@ -11,6 +11,12 @@ myflowgage=get_usgs_gage(myflowgage_id,begin_date = "2015-01-01",
 # We want Q in mm/day for the basin
 myflowgage$flowdata$Qmm = myflowgage$flowdata$flow/myflowgage$area/10^3
 
+WXData=FillMissWX(declat, declon,30,
+                       date_min="2010-01-01",
+                       date_max="2022-03-16")
+
+modeldata=merge(WXData,myflowgage$flowdata,by.x="date",by.y="mdate")
+
 #
 # But, we are going to build on last weeks lab separating out 
 declat=myflowgage$declat
@@ -331,12 +337,6 @@ mu2ch=merge(mu2ch,co2co)
 View(mu2ch)
 #
 #
-WXData=FillMissWX(declat, declon,30,
-                       date_min="2010-01-01",
-                       date_max="2022-03-16")
-
-modeldata=merge(WXData,myflowgage$flowdata,by.x="date",by.y="mdate")
-
 #source CNmodel function
 source("https://raw.githubusercontent.com/vtdrfuka/BSE5304_2022/main/functions/CNmodel")
 pacman::p_load(data.table)
